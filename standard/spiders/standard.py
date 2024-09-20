@@ -48,16 +48,13 @@ class StandardSpider(scrapy.Spider, ABC):
     def attrs(self, value):
         pass
 
-    def __init__(self, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
-
     @classmethod
     def update_settings(cls, settings: BaseSettings) -> None:
         super().update_settings(settings)
         settings.set('FEEDS', {
             os.path.join('.jsons', cls.name, 'items.json'): {
                 'format': 'json',
-                'encoding': 'utf8',
+                'encoding': 'utf-8',
                 'store_empty': False,
                 'indent': 4,
                 'overwrite': True

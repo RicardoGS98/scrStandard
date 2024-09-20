@@ -13,7 +13,7 @@ BASE_URL = 'https://apps.feriavalencia.com/api/'
 class FeriaValenciaSpider(StandardSpider):
     name = "feria-valencia"
     allowed_domains = ["apps.feriavalencia.com"]
-    duplicate_attr = "exhiid"
+    duplicate_attr = "exhibitor"
     images_attrs = ['logourl']
     attrs = [
         'exhibitor', 'name', 'province.prtrname', 'country.cotrname', 'stand', 'pavilion',
